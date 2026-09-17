@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Опросники</title>
+</head>
+
+<body>
+    <h1>Опросники</h1>
+    <ul>
+        {% for questionnaire in questionnaires %}
+        {% if questionnaire.is_published %}
+        <li>
+            <h2>{{ questionnaire.title }}</h2>
+            {% if not forloop.last %}
+            <hr>
+            {% endif %}
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
+
