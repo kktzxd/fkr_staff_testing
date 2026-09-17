@@ -7,4 +7,12 @@ def index(request):
 
 
 def authentification(request):
-    return HttpResponse("Вход")
+    return HttpResponse("Страница аутентификации")
+
+
+def questionnaire_list(request):
+    return HttpResponse("Страница со списком опросников")
+
+
+def questionnaire(request, id):
+    return HttpResponse(f"Страница c опросником {id}")
