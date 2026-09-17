@@ -13,6 +13,7 @@
         {% if questionnaire.is_published %}
         <li>
             <h2>{{ questionnaire.title }}</h2>
+            <p><a href="{% url 'questionnaire' questionnaire.id %}">Приступить к прохождению</a></p>
             {% if not forloop.last %}
             <hr>
             {% endif %}
