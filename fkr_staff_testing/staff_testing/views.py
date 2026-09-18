@@ -30,4 +30,7 @@ def questionnaire_list(request):
 
 
 def questionnaire(request, id):
-    return HttpResponse(f"Страница c опросником {id}")
+    data = {
+        'id' : id,
+    }
+    return render(request, 'questionnaire.html', context=data)

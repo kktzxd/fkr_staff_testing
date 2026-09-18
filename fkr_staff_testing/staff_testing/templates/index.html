@@ -1,19 +1,19 @@
-<!DOCTYPE html>
-<html lang="ru">
+{% extends "base.html" %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Главная страница - Вход</title>
-</head>
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
 
-<body>
-    <h1>Главная страница - Вход</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Войти</button>
-    </form>
-</body>
-
-</html>
-
+{% block content %}
+    <main class="main">
+        <div class="login-container">
+            <h1>Вход</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit"> Войти </button>
+            </form>
+        </div>
+    </main>
+{% endblock %}

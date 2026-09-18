@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Опросники</title>
-</head>
-
-<body>
-    <h1>Опросники</h1>
+{% block content %}
     <ul>
         {% for questionnaire in questionnaires %}
         {% if questionnaire.is_published %}
@@ -21,7 +14,4 @@
         {% endif %}
         {% endfor %}
     </ul>
-</body>
-
-</html>
-
+{% endblock %}
