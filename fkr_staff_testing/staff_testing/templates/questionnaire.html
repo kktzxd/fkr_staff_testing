@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <p>Опросник номер {{ id }}</p>
+    <h1>{{questionnaire.title}}</h1>
+    {{questionnaire.content|linebreaks}}
 {% endblock %}

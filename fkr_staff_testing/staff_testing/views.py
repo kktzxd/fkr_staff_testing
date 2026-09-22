@@ -1,7 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .forms import AuthorisationForm
 from .check_login import check_login
+from .models import Questionnaire
 
 
 account_db = [
@@ -37,8 +38,16 @@ def questionnaire_list(request):
     return render(request, 'questionnaire_list.html', context=questionnaires)
 
 
-def questionnaire(request, id):
+# def questionnaire(request, id):
+#     data = {
+#         'id' : id,
+#     }
+#     return render(request, 'questionnaire.html', context=data)
+
+
+def questionnaire(request, questionnaire_id):
+    questionnaire = get_object_or_404(Questionnaire, pk=questionnaire_id)
     data = {
-        'id' : id,
+        'questionnaire' : questionnaire.title,
     }
-    return render(request, 'questionnaire.html', context=data)
+    return render(request, 'questionnaire.html', data)
