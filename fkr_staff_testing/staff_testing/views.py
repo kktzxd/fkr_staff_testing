@@ -10,6 +10,7 @@ account_db = [
     {'id' : 2, 'login' : 'person2', 'password' : '2222'},
 ]
 
+
 def index(request):
     if request.method == 'POST':
         form = AuthorisationForm(request.POST)
@@ -28,20 +29,6 @@ def index(request):
 def questionnaire_list(request):
     questionnaires = Questionnaire.objects.filter(is_published=True)
     return render(request, 'questionnaire_list.html', {'questionnaires': questionnaires})
-
-
-# def questionnaire_list(request):
-#     questionnaires = {
-#         'questionnaires' : questionnaire_db,
-#     }
-#     return render(request, 'questionnaire_list.html', context=questionnaires)
-
-
-# def questionnaire(request, id):
-#     data = {
-#         'id' : id,
-#     }
-#     return render(request, 'questionnaire.html', context=data)
 
 
 def questionnaire(request, questionnaire_id):
