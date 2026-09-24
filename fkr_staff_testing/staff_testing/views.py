@@ -9,12 +9,6 @@ account_db = [
     {'id' : 1, 'login' : 'person1', 'password' : '1111'},
     {'id' : 2, 'login' : 'person2', 'password' : '2222'},
 ]
-questionnaire_db = [
-    {'id' : 1, 'title' : 'Опросник 1', 'is_published' : True},
-    {'id' : 2, 'title' : 'Опросник 2', 'is_published' : True},
-    {'id' : 3, 'title' : 'Опросник 3', 'is_published' : False},
-]
-
 
 def index(request):
     if request.method == 'POST':
@@ -32,10 +26,15 @@ def index(request):
 
 
 def questionnaire_list(request):
-    questionnaires = {
-        'questionnaires' : questionnaire_db,
-    }
-    return render(request, 'questionnaire_list.html', context=questionnaires)
+    questionnaires = Questionnaire.objects.filter(is_published=True)
+    return render(request, 'questionnaire_list.html', {'questionnaires': questionnaires})
+
+
+# def questionnaire_list(request):
+#     questionnaires = {
+#         'questionnaires' : questionnaire_db,
+#     }
+#     return render(request, 'questionnaire_list.html', context=questionnaires)
 
 
 # def questionnaire(request, id):
